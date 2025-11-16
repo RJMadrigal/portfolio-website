@@ -64,7 +64,6 @@ export default async function RootLayout({
                     border: style.border,
                     surface: style.surface,
                     transition: style.transition,
-                    scaling: style.scaling,
                     "viz-style": dataStyle.variant,
                   })};
                   
