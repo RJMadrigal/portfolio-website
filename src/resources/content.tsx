@@ -1,40 +1,39 @@
-import { About, Blog, Gallery, Home, Newsletter, Person, Social, Work } from "@/types";
+import type { About, Blog,Gallery,  Home, Newsletter, Person, Social, Work } from "@/types";
 import { Line, Logo, Row, Text } from "@once-ui-system/core";
 
 const person: Person = {
-  firstName: "Selene",
-  lastName: "Yu",
-  name: `Selene Yu`,
-  role: "Design Engineer",
+  firstName: "Josue",
+  lastName: "Madrigal",
+  name: `Josue Madrigal`,
+  role: "System Engineer",
   avatar: "/images/avatar.jpg",
-  email: "example@gmail.com",
-  location: "Asia/Jakarta", // Expecting the IANA time zone identifier, e.g., 'Europe/Vienna'
-  languages: ["English", "Bahasa"], // optional: Leave the array empty if you don't want to display languages
+  email: "josuemadrigalvevo@gmail.com",
+  location: "America/Costa_Rica", // Expecting the IANA time zone identifier, e.g., 'Europe/Vienna'
+  languages: ["English", "Spanish"], // optional: Leave the array empty if you don't want to display languages
 };
 
 const newsletter: Newsletter = {
   display: true,
-  title: <>Subscribe to {person.firstName}'s Newsletter</>,
-  description: <>My weekly newsletter about creativity and engineering</>,
+  title: <>Contact with to {person.firstName}</>,
+  description: <>If you want to work together, have a question, or just want to say hello, feel free to reach out.</>,
 };
 
 const social: Social = [
   // Links are automatically displayed.
-  // Import new icons in /once-ui/icons.ts
   {
     name: "GitHub",
     icon: "github",
-    link: "https://github.com/once-ui-system",
+    link: "https://github.com/RJMadrigal",
   },
   {
     name: "LinkedIn",
     icon: "linkedin",
-    link: "https://www.linkedin.com/company/once-ui/",
+    link: "https://www.linkedin.com/in/rjosuemadrigal/",
   },
   {
     name: "Threads",
     icon: "threads",
-    link: "https://www.threads.com/@once_ui",
+    link: "https://www.threads.com/@bymadrigal",
   },
   {
     name: "Email",
@@ -49,33 +48,29 @@ const home: Home = {
   label: "Home",
   title: `${person.name}'s Portfolio`,
   description: `Portfolio website showcasing my work as a ${person.role}`,
-  headline: <>Building bridges between design and code</>,
+  headline: <>Simplify through innovation</>,
   featured: {
     display: true,
     title: (
       <Row gap="12" vertical="center">
-        <strong className="ml-4">Once UI</strong>{" "}
+        <strong className="ml-4">Github</strong>{" "}
         <Line background="brand-alpha-strong" vert height="20" />
         <Text marginRight="4" onBackground="brand-medium">
-          Featured work
+          my work
         </Text>
       </Row>
     ),
-    href: "/work/building-once-ui-a-customizable-design-system",
+    href: "https://github.com/RJMadrigal",
   },
   subline: (
-    <>
-      I'm Selene, a design engineer at{" "}
-      <Logo
-        dark
-        icon="/trademarks/wordmark-dark.svg"
-        style={{ display: "inline-flex", top: "0.25em", marginLeft: "-0.25em" }}
-      />
-      , where I craft intuitive
-      <br /> user experiences. After hours, I build my own projects.
-    </>
-  ),
+  <>
+    Soon-to-graduate Systems Engineering student with hands-on software experience and emerging tech.{" "}
+    Currently developing PuraCode, a local project to bring tech solutions to my community.
+  </>
+),
 };
+
+
 
 const about: About = {
   path: "/about",
@@ -91,16 +86,14 @@ const about: About = {
   },
   calendar: {
     display: true,
-    link: "https://cal.com",
+    link: "https://cal.com/josue-madrigal-4tikjt",
   },
-  intro: {
+  intro: {////////////
     display: true,
     title: "Introduction",
     description: (
       <>
-        Selene is a Jakarta-based design engineer with a passion for transforming complex challenges
-        into simple, elegant design solutions. Her work spans digital interfaces, interactive
-        experiences, and the convergence of design and technology.
+        Josué is a Costa Rica–based systems engineer and developer passionate about turning ideas into meaningful digital experiences. His work bridges software development, emerging technologies, and the growing influence of AI.
       </>
     ),
   },
@@ -109,41 +102,42 @@ const about: About = {
     title: "Work Experience",
     experiences: [
       {
-        company: "FLY",
-        timeframe: "2022 - Present",
-        role: "Senior Design Engineer",
+        company: "4Geeks.io",
+        timeframe: "December 2024 - April 2025",
+        role: "Software Engineering Intern",
         achievements: [
           <>
-            Redesigned the UI/UX for the FLY platform, resulting in a 20% increase in user
-            engagement and 30% faster load times.
+            Full-stack development using Angular (TypeScript) and Django, focused on scalability and best
+            practices.
           </>,
           <>
-            Spearheaded the integration of AI tools into design workflows, enabling designers to
-            iterate 50% faster.
+            Integrated Stripe for one-time and recurring payments, adapted to international tax regulations.
           </>,
-        ],
-        images: [
-          // optional: leave the array empty if you don't want to display images
-          {
-            src: "/images/projects/project-01/cover-01.jpg",
-            alt: "Once UI Project",
-            width: 16,
-            height: 9,
-          },
+          <>
+          Automated workflows via webhooks and Make, enabling real-time monitoring and smart
+          decision-making
+          </>,
+          <>
+            Built AI call agent with Gemini models to confirm client appointments automatically.
+          </>,
         ],
       },
       {
-        company: "Creativ3",
-        timeframe: "2018 - 2022",
-        role: "Lead Designer",
+        company: "Freelance - Millstruck NJ",
+        timeframe: "2024",
+        role: "Full-Stack Developer",
         achievements: [
           <>
-            Developed a design system that unified the brand across multiple platforms, improving
-            design consistency by 40%.
+            Designed and implemented a web-based invoice management system to automate billing processes for a
+            small business in New Jersey using ASP.NET Core, incorporating secure authentication and role-based
+            access control, integrated Google Maps API to calculate distances and generate accurate service tariffs
+            for invoicing
           </>,
           <>
-            Led a cross-functional team to launch a new product line, contributing to a 15% increase
-            in overall company revenue.
+           Built and optimized database schemas with SQL Server.
+          </>,
+          <>
+            Improved the client’s operational efficiency by reducing manual invoice processing time by 70%
           </>,
         ],
         images: [],
@@ -155,13 +149,9 @@ const about: About = {
     title: "Studies",
     institutions: [
       {
-        name: "University of Jakarta",
-        description: <>Studied software engineering.</>,
-      },
-      {
-        name: "Build the Future",
-        description: <>Studied online marketing and personal branding.</>,
-      },
+        name: "Universidad Autónoma de Centroamérica",
+        description: <>System Engineering - Soon to graduate in in 04/2026.</>,
+      }
     ],
   },
   technical: {
@@ -169,60 +159,49 @@ const about: About = {
     title: "Technical skills",
     skills: [
       {
-        title: "Figma",
-        description: (
-          <>Able to prototype in Figma with Once UI with unnatural speed.</>
-        ),
+        title: "Languages & Frameworks:",
         tags: [
           {
-            name: "Figma",
-            icon: "figma",
+            name: "Python",
           },
-        ],
-        // optional: leave the array empty if you don't want to display images
-        images: [
-          {
-            src: "/images/projects/project-01/cover-02.jpg",
-            alt: "Project image",
-            width: 16,
-            height: 9,
+          {          
+            name: "C#",
           },
           {
-            src: "/images/projects/project-01/cover-03.jpg",
-            alt: "Project image",
-            width: 16,
-            height: 9,
+            name: "Django",
           },
+          {
+            name: "TypeScript",
+          },
+          {
+            name: "ASP.NET Core",
+          },
+          {
+            name: "Node.js",
+          },  
         ],
+        
       },
       {
-        title: "Next.js",
-        description: (
-          <>Building next gen apps with Next.js + Once UI + Supabase.</>
-        ),
+        title: "Tools & DevOps",
         tags: [
           {
-            name: "JavaScript",
-            icon: "javascript",
+            name: "Git",
           },
           {
-            name: "Next.js",
-            icon: "nextjs",
+            name: "Docker",           
           },
           {
-            name: "Supabase",
-            icon: "supabase",
+            name: "(CI/CD) concepts",
           },
+          {
+            name: "Postman",
+          },
+          { 
+            name: "Testing & Debugging",
+          },     
         ],
-        // optional: leave the array empty if you don't want to display images
-        images: [
-          {
-            src: "/images/projects/project-01/cover-04.jpg",
-            alt: "Project image",
-            width: 16,
-            height: 9,
-          },
-        ],
+        
       },  
     ],
   },
@@ -255,42 +234,42 @@ const gallery: Gallery = {
   // These are placeholder images, replace with your own
   images: [
     {
-      src: "/images/gallery/horizontal-1.jpg",
+      src: "/images/gallery/",
       alt: "image",
       orientation: "horizontal",
     },
     {
-      src: "/images/gallery/vertical-4.jpg",
+      src: "/images/gallery/",
       alt: "image",
       orientation: "vertical",
     },
     {
-      src: "/images/gallery/horizontal-3.jpg",
+      src: "/images/gallery/",
       alt: "image",
       orientation: "horizontal",
     },
     {
-      src: "/images/gallery/vertical-1.jpg",
+      src: "/images/gallery/",
       alt: "image",
       orientation: "vertical",
     },
     {
-      src: "/images/gallery/vertical-2.jpg",
+      src: "/images/gallery/",
       alt: "image",
       orientation: "vertical",
     },
     {
-      src: "/images/gallery/horizontal-2.jpg",
+      src: "/images/gallery/",
       alt: "image",
       orientation: "horizontal",
     },
     {
-      src: "/images/gallery/horizontal-4.jpg",
+      src: "/images/gallery/",
       alt: "image",
       orientation: "horizontal",
     },
     {
-      src: "/images/gallery/vertical-3.jpg",
+      src: "/images/gallery/",
       alt: "image",
       orientation: "vertical",
     },

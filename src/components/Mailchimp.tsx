@@ -34,7 +34,7 @@ export const Mailchimp: React.FC<React.ComponentProps<typeof Column>> = ({ ...fl
     if (!validateEmail(value)) {
       setError("Please enter a valid email address.");
     } else {
-      setError("");
+      setError("Error");
     }
   };
 
