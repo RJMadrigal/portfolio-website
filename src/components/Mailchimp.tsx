@@ -113,30 +113,28 @@ export const Mailchimp: React.FC<React.ComponentProps<typeof Column>> = ({ ...fl
         </Text>
       </Column>
       <form
-        style={{
-          width: "100%",
-          display: "flex",
-          justifyContent: "center",
+        onSubmit={(e) => {
+          if (!validateEmail(email)) {
+            e.preventDefault();
+            setTouched(true);
+            setError("Please enter a valid email address.");
+          }
         }}
+        style={{ width: "100%", display: "flex", justifyContent: "center" }}
         action={mailchimp.action}
         method="post"
         id="mc-embedded-subscribe-form"
         name="mc-embedded-subscribe-form"
       >
-        <Row
-          id="mc_embed_signup_scroll"
-          fillWidth
-          maxWidth={24}
-          s={{ direction: "column" }}
-          gap="8"
-        >
+        <Column id="mc_embed_signup_scroll" fillWidth maxWidth="xs" gap="8">
           <Input
             formNoValidate
             id="mce-EMAIL"
             name="EMAIL"
             type="email"
-            placeholder="Email"
+            placeholder="Your email"
             required
+            value={email}
             onChange={(e) => {
               if (error) {
                 handleChange(e);
@@ -170,14 +168,12 @@ export const Mailchimp: React.FC<React.ComponentProps<typeof Column>> = ({ ...fl
               value=""
             />
           </div>
-          <div className="clear">
-            <Row height="48" vertical="center">
-              <Button id="mc-embedded-subscribe" value="Subscribe" size="m" fillWidth>
-                Subscribe
-              </Button>
-            </Row>
-          </div>
-        </Row>
+          <Row height="48" vertical="center">
+            <Button id="mc-embedded-subscribe" value="Subscribe" size="m" fillWidth>
+              Subscribe
+            </Button>
+          </Row>
+        </Column>
       </form>
     </Column>
   );
