@@ -1,11 +1,22 @@
 "use client";
 
 import { mailchimp, newsletter } from "@/resources";
-import { Button, Heading, Input, Text, Background, Column, Row, Textarea } from "@once-ui-system/core";
+import {
+  Button,
+  Heading,
+  Input,
+  Text,
+  Background,
+  Column,
+  Row,
+  Textarea,
+} from "@once-ui-system/core";
 import { opacity, SpacingToken } from "@once-ui-system/core";
 import { useState } from "react";
 
-const ContactForm: React.FC<React.ComponentProps<typeof Column>> = ({ ...flex }) => {
+const ContactForm: React.FC<React.ComponentProps<typeof Column>> = ({
+  ...flex
+}) => {
   const [email, setEmail] = useState<string>("");
   const [name, setName] = useState<string>("");
   const [message, setMessage] = useState<string>("");
@@ -25,13 +36,17 @@ const ContactForm: React.FC<React.ComponentProps<typeof Column>> = ({ ...flex })
   const handleEmailChange = (value: string) => {
     setEmail(value);
     if (touched) {
-      setEmailError(validateEmail(value) ? "" : "Please enter a valid email address.");
+      setEmailError(
+        validateEmail(value) ? "" : "Please enter a valid email address."
+      );
     }
   };
 
   const handleBlur = () => {
     setTouched(true);
-    setEmailError(validateEmail(email) ? "" : "Please enter a valid email address.");
+    setEmailError(
+      validateEmail(email) ? "" : "Please enter a valid email address."
+    );
   };
 
   const handleSubmit = async (e: React.FormEvent) => {
@@ -59,8 +74,19 @@ const ContactForm: React.FC<React.ComponentProps<typeof Column>> = ({ ...flex })
         headers: { "Content-Type": "application/json" },
       });
 
+      const contentType = res.headers.get("content-type") || "";
+      let payload: any = null;
+
+      if (contentType.includes("application/json")) {
+        payload = await res.json().catch(() => null);
+      } else {
+        payload = { error: await res.text().catch(() => "Request failed") };
+      }
+
       if (!res.ok) {
-        setSubmitError("Something went wrong. Please try again.");
+        setSubmitError(
+          payload?.error || "Something went wrong. Please try again."
+        );
         return;
       }
 
@@ -138,7 +164,12 @@ const ContactForm: React.FC<React.ComponentProps<typeof Column>> = ({ ...flex })
         <Heading marginBottom="s" variant="display-strong-xs">
           {newsletter.title}
         </Heading>
-        <Text wrap="balance" marginBottom="l" variant="body-default-l" onBackground="neutral-weak">
+        <Text
+          wrap="balance"
+          marginBottom="l"
+          variant="body-default-l"
+          onBackground="neutral-weak"
+        >
           {newsletter.description}
         </Text>
       </Column>
@@ -148,7 +179,6 @@ const ContactForm: React.FC<React.ComponentProps<typeof Column>> = ({ ...flex })
         style={{ width: "100%", display: "flex", justifyContent: "center" }}
       >
         <Column fillWidth maxWidth="xs" gap="8">
-          
           {/* Name */}
           <Input
             id="contact-NAME"
