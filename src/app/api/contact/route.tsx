@@ -1,6 +1,7 @@
-import { EmailTemplate } from "./EmailTemplate";
 import { NextResponse } from "next/server";
 import { Resend } from "resend";
+import { render } from '@react-email/render';
+import { EmailTemplate } from "./EmailTemplate";
 
 export const runtime = "nodejs";
 
@@ -22,22 +23,23 @@ export async function POST(req: Request) {
 
     const resend = new Resend(apiKey);
     
+    // Render the React component to HTML
+    const emailHtml = await render(
+      <EmailTemplate
+        name={name}
+        email={email}
+        message={message}
+        sentAt={new Date().toISOString()}
+      />
+    );
 
     const data = await resend.emails.send({
       from,
       to: [to],
       replyTo: email,
       subject: `Portfolio contact: ${name}`,
-      react: (
-        <EmailTemplate
-          name={name}
-          email={email}
-          message={message}
-          sentAt={new Date().toISOString()}
-        />
-      ),
+      html: emailHtml, // Use html instead of react
     });
-
 
     return NextResponse.json({ success: true, data });
   } catch (err: any) {
