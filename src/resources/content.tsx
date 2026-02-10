@@ -64,8 +64,8 @@ const home: Home = {
   },
   subline: (
   <>
-    Soon-to-graduate Systems Engineering student with hands-on software experience and emerging tech.{" "}
-    Currently developing PuraCode, a local project to bring tech solutions to my community.
+    Systems Engineer with hands-on software development and emerging tech.{" "}
+    Currently developing PuraCode, a iniciative to bring tech solutions to the community.
   </>
 ),
 };
@@ -123,24 +123,23 @@ const about: About = {
         ],
       },
       {
-        company: "Freelance - Millstruck NJ",
+        company: "Freelance",
         timeframe: "2024",
         role: "Full-Stack Developer",
         achievements: [
           <>
-            Designed and implemented a web-based invoice management system to automate billing processes for a
-            small business in New Jersey using ASP.NET Core, incorporating secure authentication and role-based
-            access control, integrated Google Maps API to calculate distances and generate accurate service tariffs
-            for invoicing
+            Delivered custom full-stack solutions for diverse clients, leveraging technologies like ASP.NET Core,
+            Python, and TypeScript to address real-world business challenges and drive measurable results.
           </>,
           <>
-           Built and optimized database schemas with SQL Server.
+            Designed and implemented web-based applications with secure authentication, role-based access control,
+            and optimized database architectures using SQL Server and other modern data solutions.
           </>,
           <>
-            Improved the client’s operational efficiency by reducing manual invoice processing time by 70%
+            Consistently improved client operational efficiency through automation and strategic system design,
+            reducing manual processes and enabling scalable, maintainable solutions.
           </>,
         ],
-        images: [],
       },
     ],
   },
@@ -180,7 +179,6 @@ const about: About = {
             name: "Node.js",
           },  
         ],
-        
       },
       {
         title: "Tools & DevOps",
